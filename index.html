@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Know when to seek Accident and Emergency (A&E) for medical emergencies. Find a General Practitioner (GP) for non-emergency medical care. Check A&E waiting times for public hospitals across Singapore.">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <title>A&E Guide | Information on Medical Emergency and Non-Emergency</title>
+    <link rel="icon" type="image/png" href="cross.png">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="search.js"></script>
+</head>
+<body>
+
+<!-- Section 1 - Info on when to seek A&E, text only -->
+
+<div class="header">
+    <h1>[Under development] A&E Guide</h1>
+    <p>(1) Know when to seek Accident and Emergency (A&E) for medical emergencies.<br>(2) Find a General Practitioner (GP) for non-emergency medical care.<br>(3) Check A&E waiting times for public hospitals across Singapore.</p>
+    <nav>
+        <a class="menu-link" href="index.html">Home</a>
+        <a class="menu-link" href="references.html">References</a>
+    </nav>
+</div>
+
+<div class="content">
+    <h2>Go A&E for medical emergencies</h2>
+    <div class="list-container">
+        <ul>
+            <li>Breathing difficulties (e.g. shortness of breath / choking)</li>
+            <li>Sudden and severe pain, including chest pain</li>
+            <li>Unconsciousness</li>
+            <li>Severe bleeding</li>
+            <li>Sudden dizziness, weakness, numbness or vision change</li>
+        </ul>
+        <ul>
+            <li>Change in mental state (e.g. sudden confusion / disorientation / difficulty arousing)</li>
+            <li>Coughing up or vomiting blood</li>
+            <li>Persistent vomiting or diarrhoea</li>
+            <li>Injuries to the head or spine</li>
+            <li>Major limb fractures / dislocations</li>
+            <li>Drug overdose or poisoning</li>
+            <li>Traffic or worksite accident</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Section 2 - Info on GPFirst and a button to redirect to GPFirst website, see whether is it useful to pre-fill the page -->
+
+<div class="content">
+    <h2>Go GPFirst for non-emergency cases</h2>
+    <p>The GPFirst programme encourages individuals with <u>mild to moderate medical conditions to consult a GP before heading to A&E</u>. This ensures timely medical treatment for their conditions and allows A&E to prioritize more critical cases.</p>
+    <div class="button-container">
+        <button onclick="window.open('https://www.singhealth.com.sg/rhs/find-a-gp')">Go to GPFirst</button>
+    </div>
+</div>
+
+<!-- Section 3 - Check A&E waiting times based on location, manual search and GPS -->
+
+<div class="content">
+    <h2>Check A&E waiting times</h2>
+    <div class="search-container">
+        <input type="text" id="search-input" class="search-input" placeholder="Enter your location" oninput="performSearch()">
+        <div id="search-results" class="autocomplete-results"></div>
+    </div>
+</div>
+
+<div class="content">
+
+  <table>
+    <tr>
+      <th>Hospital</th>
+      <th>Distance from current location</th>
+      <th>Waiting time to see doctor</th>
+      <th>Total number of patients</th>
+      <th>Median waiting time for admission to ward*</th>
+    </tr>
+    <tr>
+      <td>Alexandra Hospital Urgent Care Centre</td>
+      <td>AC UCC Data 1</td>
+      <td>-</td>
+      <td>-</td>
+      <td>1.1 to 2.2 hrs</td>
+    </tr>
+    <tr>
+      <td>Changi General Hospital</td>
+      <td>CGH Data 1</td>
+      <td>-</td>
+      <td>-</td>
+      <td>3.9 to 29 hrs</td>
+    </tr>
+    <tr>
+      <td>Khoo Teck Puat Hospital</td>
+      <td>KTPH Data 1</td>
+      <td>KTPH Data 2</td>
+      <td>KTPH Data 3</td>
+      <td>3.9 to 23 hrs</td>
+    </tr>
+    <tr>
+      <td>National University Hospital</td>
+      <td>NUH Data 1</td>
+      <td>-</td>
+      <td>-</td>
+      <td>3.9 to 7.1 hrs</td>
+    </tr>
+    <tr>
+      <td>Ng Teng Fong General Hospital</td>
+      <td>NTFGH Data 1</td>
+      <td>-</td>
+      <td>-</td>
+      <td>1.7 to 5.8 hrs</td>
+    </tr>
+    <tr>
+      <td>Sengkang General Hospital</td>
+      <td>SKH Data 1</td>
+      <td>-</td>
+      <td>-</td>
+      <td>4.1 to 18.7 hrs</td>
+    </tr>
+    <tr>
+      <td>Singapore General Hospital</td>
+      <td>SGH Data 1</td>
+      <td>-</td>
+      <td>-</td>
+      <td>4.2 to 12.6 hrs</td>
+    </tr>
+    <tr>
+      <td>Tan Tock Seng Hospital</td>
+      <td>TTSH Data 1</td>
+      <td>TTSH Data 2</td>
+      <td>TTSH Data 3</td>
+      <td>4.6 to 9.7 hrs</td>
+    </tr>
+  </table>
+
+</div>
+
+</body>
+
+<footer class="footer">
+  <a href="#">Back to top</a>
+</footer>
+
+</html>
