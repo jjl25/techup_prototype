@@ -1,242 +1,187 @@
-/* styles.css */
+// Initialize myLocation variable to store selected coordinates
 
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+var myLocation = [];
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+// Function to perform an address search using OneMap's API
+
+function addressSearch(searchVal, returnGeom, getAddrDetails, pageNum) {
+  // Initialize a new XMLHttpRequest object
+  const xhr = new XMLHttpRequest();
+
+  // Configure the GET request with the search parameters
+  xhr.open("GET", `https://www.onemap.gov.sg/api/common/elastic/search?searchVal=${encodeURIComponent(searchVal)}&returnGeom=${returnGeom}&getAddrDetails=${getAddrDetails}&pageNum=${pageNum}`, true);
+
+  // Set the expected response format to JSON
+  xhr.responseType = 'json';
+
+  // Define the onload event handler
+  xhr.onload = function() {
+    // Check if the request was successful
+    if (xhr.status === 200) {
+      // Update the dropdown with the search results
+      updateDropdown(xhr.response.results);
+    } else {
+      // Log any errors from the search
+      console.error('Search failed:', xhr.statusText);
+    }
+  };
+
+  // Define the onerror event handler
+  xhr.onerror = function() {
+    // Log the request failure
+    console.error('Request failed');
+  };
+
+  // Send the configured request
+  xhr.send();
 }
 
-/* Header styles */
-.header {
-    background: #00008B;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    font-family: 'Lato', sans-serif;
+// Function to update the dropdown list with search results
+
+function updateDropdown(results) {
+  // Get the search results container element
+  var searchResults = document.getElementById('search-results');
+  // Clear any previous search results
+  searchResults.innerHTML = '';
+
+  // Iterate over each result item
+  results.forEach(function(item) {
+    // Create a new div element for the result item
+    var div = document.createElement('div');
+    // Set the text content to the address
+    div.textContent = item.ADDRESS;
+    // Assign a class for styling
+    div.className = 'result-item';
+    // Define the onclick event handler for the result item
+    div.onclick = function() {
+      // Update myLocation with the selected coordinates
+      myLocation = [item.LATITUDE, item.LONGITUDE];
+      // Print response on console
+      console.log(item);
+      console.log('Latitude: ' + item.LATITUDE +', ' + 'Longitude: ' + item.LONGITUDE);
+
+      // Display the selected coordinates on the webpage
+      // document.getElementById('latitude').textContent = 'Latitude: ' + item.LATITUDE;
+      // document.getElementById('longitude').textContent = 'Longitude: ' + item.LONGITUDE;
+
+      // Update the search input with the selected address
+      document.getElementById('search-input').value = item.ADDRESS;
+      // Hide the dropdown after selection
+      searchResults.style.display = 'none';
+    };
+    // Append the result item to the search results container
+    searchResults.appendChild(div);
+  });
 }
 
-h1 {
-    font-size: 40px;
-    color: #fff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    margin-bottom: 20px;
+// Function to handle search input changes and initiate a search
+
+function performSearch() {
+  // Retrieve the value from the search input field
+  var searchInput = document.getElementById('search-input').value;
+  // Perform the address search with the input value
+  addressSearch(searchInput, 'Y', 'Y', 1);
+  // Display the search results dropdown
+  document.getElementById('search-results').style.display = 'block';
 }
 
-.header p {
-    font-size: 18px;
-    line-height: 1.6;
-    margin-bottom: 20px;
-    color: #fff;
-    font-style: italic;
+// Add an event listener to handle changes to the search input
+// document.getElementById('search-input').addEventListener('input', performSearch);
+
+// Function to handle search button click and calculate distances
+
+function onSubmit(event) {
+    event.preventDefault();
+    if (myLocation.length === 0) {
+        alert('Please select a location first.'); // Alert if no location is selected
+        return;
+    }
+    var lat = parseFloat(myLocation[0]);
+    var lon = parseFloat(myLocation[1]);
+    hospitals.forEach(function(hospital) {
+        var distance = calculateDistance(lat, lon, hospital.location[0], hospital.location[1]);
+        hospital.calculated_distance = distance; // Store distance in the hospital object
+    });
+    updateDistancesAndSort(); // Sort hospitals by distance
+    renderCards(); // Render the hospital cards
 }
 
-nav {
-    margin-bottom: 20px;
+// Function to calculate distance between two coordinates
+
+function calculateDistance(lat1, lon1, lat2, lon2) {
+    var R = 6371; // Radius of the earth in km
+    var dLat = deg2rad(lat2 - lat1);  // deg2rad below
+    var dLon = deg2rad(lon2 - lon1); 
+    var a = 
+        Math.sin(dLat/2) * Math.sin(dLat/2) +
+        Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
+        Math.sin(dLon/2) * Math.sin(dLon/2); 
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+    var distance = R * c; // Distance in km
+    return distance.toFixed(2); // Fix the distance to 2 decimal places
 }
 
-.menu-link {
-    text-decoration: none;
-    color: #2193b0;
-    margin: 0 10px;
-    transition: color 0.3s ease;
-    font-family: 'Lato', sans-serif;
-    font-weight: bold;
+// Function to convert degrees to radians
+
+function deg2rad(deg) {
+    return deg * (Math.PI/180);
 }
 
-.menu-link:hover {
-    color: #6dd5ed;
+// Array of hospital locations
+
+var hospitals = [
+        
+        {name: "Changi General Hospital", location: [1.3402507222916804, 103.94957278340561], calculated_distance: null, wait_time_doc: "Data not available", no_of_patients: "Data not Available", wait_time_atw: "3.9 to 29 hrs"},
+        {name: "Khoo Teck Puat Hospital", location: [1.4243504773028133, 103.83858952387206], calculated_distance: null, wait_time_doc: "In development", no_of_patients: "In development", wait_time_atw: "3.9 to 23 hrs"},
+        {name: "National University Hospital", location: [1.2951804107887588, 103.78293825874638], calculated_distance: null, wait_time_doc: "Data not available", no_of_patients: "Data not Available", wait_time_atw: "3.9 to 7.1 hrs"},
+        {name: "Ng Teng Fong General Hospital", location: [1.3335141468299205, 103.74597459082267], calculated_distance: null, wait_time_doc: "Data not available", no_of_patients: "Data not Available", wait_time_atw: "1.7 to 5.8 hrs"},
+        {name: "Sengkang General Hospital", location: [1.3958986576429515, 103.89394476726933], calculated_distance: null, wait_time_doc: "Data not available", no_of_patients: "Data not Available", wait_time_atw: "4.1 to 18.7 hrs"},
+        {name: "Singapore General Hospital", location: [1.2783872348331307, 103.83413697237597], calculated_distance: null, wait_time_doc: "Data not available", no_of_patients: "Data not Available", wait_time_atw: "4.2 to 12.6 hrs"},
+        {name: "Tan Tock Seng Hospital", location: [1.321316768983475, 103.8463984667227], calculated_distance: null, wait_time_doc: "In development", no_of_patients: "In development", wait_time_atw: "4.6 to 9.7 hrs"}
+
+];
+
+// Function to update distances and sort the array
+function updateDistancesAndSort() {
+    hospitals.sort((a, b) => parseFloat(a.calculated_distance) - parseFloat(b.calculated_distance));
 }
 
-/* Content styles */
-.content {
-    background-color: #fff;
-    padding: 20px;
-    margin: 20px auto;
-    border-radius: 8px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    font-family: 'Lato', serif;
-    max-width: 800px;
+// Function to render cards
+
+function renderCards() {
+    var container = document.getElementById('hospitals-container');
+    container.innerHTML = ''; // Clear the container
+    hospitals.forEach(function(hospital) {
+        var card = document.createElement('div');
+        card.className = 'card';
+        var distanceDisplay = hospital.calculated_distance ? hospital.calculated_distance + ' km' : 'Please enter location';
+        var waitTimeDocDisplay = hospital.wait_time_doc ? hospital.wait_time_doc : 'Wait time data not available';
+        var noOfPatientsDisplay = hospital.no_of_patients ? hospital.no_of_patients : 'Number of patients data not available';
+        var waitTimeAtwDisplay = hospital.wait_time_atw ? hospital.wait_time_atw : 'Average wait time data not available';
+        card.innerHTML = '<h3>' + hospital.name + '</h3>' +
+                         '<p><strong>Distance:</strong> ' + distanceDisplay + '</p>' +
+                         '<p><strong>Waiting time to see doctor:</strong> ' + waitTimeDocDisplay + '</p>' +
+                         '<p><strong>Total number of patients:</strong> ' + noOfPatientsDisplay + '</p>' +
+                         '<p><strong>Median waiting time for admission to ward:</strong> ' + waitTimeAtwDisplay + '</p>';
+        container.appendChild(card);
+    });
 }
 
-h2 {
-    font-size: 24px;
-    color: #333;
-    text-align: center;
-    border-bottom: 2px solid #2193b0;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
+// Function to extract the minimum wait time from the wait_time_atw string
+
+function getMinWaitTime(waitTimeStr) {
+    var times = waitTimeStr.split(' to ');
+    return parseFloat(times[0]);
 }
 
-ul {
-    font-size: 16px;
-    color: #333;
-    line-height: 1.6;
-    font-family: 'Lato', sans-serif;
+// Function to sort the array by minimum wait time for admission
+
+function waitTimeSort() {
+    hospitals.sort((a, b) => getMinWaitTime(a.wait_time_atw) - getMinWaitTime(b.wait_time_atw));
 }
 
-p {
-    font-size: 18px;
-    color: #333;
-    line-height: 1.6;
-    font-family: 'Lato', sans-serif;
-}
+// Call waitTimeSort function to sort the hospitals by wait time for admission when the page loads
+waitTimeSort();
 
-.list-container {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 5px 0 25px;
-}
-
-.list-container ul {
-    width: 45%;
-}
-
-.button-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-button {
-    background-color: #2193b0;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    font-weight: bold
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #6dd5ed;
-}
-
-.search-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    position: relative; /* Set the position to relative */
-}
-
-.search-input {
-    padding: 10px;
-    font-size: 17px;
-    border: 2px solid #A9A9A9;
-    border-radius: 4px;
-    width: 70%;
-    margin-right: 10px;
-    font-family: 'Lato', sans-serif;
-    position: relative; /* Set the position to relative */
-    z-index: 100; /* Ensure it stacks above the autocomplete results */
-}
-
-.search-input::placeholder {
-    font-style: italic;
-}
-
-.search-button {
-    padding: 10px 20px;
-    background-color: #2193b0;
-    color: white;
-    font-size: 16px;
-    font-weight: bold
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.search-button:hover {
-    background-color: #6dd5ed;
-}
-
-.autocomplete-results {
-    display: none; /* Hide the autocomplete results initially */
-    position: absolute; /* Position it relative to the search container */
-    background-color: #fff;
-    border: 1px solid #d4d4d4;
-    border-top: none;
-    z-index: 99; /* Ensure it stacks below the search input */
-    width: 70%; /* Same width as the search input */
-    max-height: 200px; /* Limit the height and make it scrollable */
-    overflow-y: auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    top: 38px; /* Adjust this value to position the dropdown correctly */
-}
-
-.result-item {
-    padding: 10px;
-    cursor: pointer;
-    border-bottom: 1px solid #d4d4d4;
-}
-
-.result-item:last-child {
-    border-bottom: none;
-}
-
-.result-item:hover {
-    background-color: #f2f2f2;
-}
-
-/* Card container styles */
-.card-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-}
-
-/* Card styles */
-
-.card {
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  padding: 20px;
-  width: 70%;
-}
-
-.card h2 {
-  color: #2193b0;
-  font-size: 20px;
-  margin: 0 0 15px;
-}
-
-.card p {
-  margin: 5px 0;
-}
-
-.card p strong {
-  color: #333;
-}
-
-/* Footer style*/
-
-.footer {
-    background-color: #00008B;
-    padding: 20px 0;
-    text-align: center;
-}
-.footer a {
-    text-decoration: none;
-    color: #2193b0;
-    margin: 0 10px;
-    transition: color 0.3s ease;
-    font-family: 'Lato', sans-serif;
-    font-weight: bold;
-}
-.footer a:hover {
-    color: #6dd5ed;
-}
-
-/* References page style*/
-
-.references {
-    padding-left: 30px;
-    text-align: left;
-}
+// Then call renderCards function to show the sorted cards
+renderCards();

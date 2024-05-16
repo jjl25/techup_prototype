@@ -8,7 +8,6 @@
     <title>A&E Guide | Information on Medical Emergency and Non-Emergency</title>
     <link rel="icon" type="image/png" href="cross.png">
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <script src="search.js"></script>
 </head>
 <body>
 
@@ -62,85 +61,17 @@
     <div class="search-container">
         <input type="text" id="search-input" class="search-input" placeholder="Enter your location" oninput="performSearch()">
         <div id="search-results" class="autocomplete-results"></div>
+        <button onclick="onSubmit(event)" class="search-button">Search</button>
     </div>
 </div>
+
+<!-- Section 4 - Hospital cards -->
 
 <div class="content">
-    <div class="card-container">
-        <!-- Card for Alexandra Hospital Urgent Care Centre -->
-        <div class="card">
-            <h2>Alexandra Hospital Urgent Care Centre</h2>
-            <p><strong>Distance:</strong> AC UCC Data 1</p>
-            <p><strong>Waiting Time to See Doctor:</strong> Not Available</p>
-            <p><strong>Total Number of Patients:</strong> Not Available</p>
-            <p><strong>Median Waiting Time for Admission to Ward:</strong> 1.1 to 2.2 hrs</p>
-        </div>
-
-        <!-- Card for Changi General Hospital -->
-        <div class="card">
-            <h2>Changi General Hospital</h2>
-            <p><strong>Distance:</strong> CGH Data 1</p>
-            <p><strong>Waiting Time to See Doctor:</strong> Not Available</p>
-            <p><strong>Total Number of Patients:</strong> Not Available</p>
-            <p><strong>Median Waiting Time for Admission to Ward:</strong> 3.9 to 29 hrs</p>
-       </div>
-
-       <!-- Card for Khoo Teck Puat Hospital -->
-       <div class="card">
-           <h2>Khoo Teck Puat Hospital</h2>
-           <p><strong>Distance:</strong> KTPH Data 1</p>
-           <p><strong>Waiting Time to See Doctor:</strong> KTPH Data 2</p>
-           <p><strong>Total Number of Patients:</strong> KTPH Data 3</p>
-           <p><strong>Median Waiting Time for Admission to Ward:</strong> 3.9 to 23 hrs</p>
-       </div>
-
-        <!-- National University Hospital -->
-        <div class="card">
-            <h2>National University Hospital</h2>
-            <p><strong>Distance:</strong> NUH Data 1</p>
-            <p><strong>Waiting Time to See Doctor:</strong> Not Available</p>
-            <p><strong>Total Number of Patients:</strong> Not Available</p>
-            <p><strong>Median Waiting Time for Admission to Ward:</strong> 3.9 to 7.1 hrs</p>
-       </div>
-
-        <!-- Ng Teng Fong General Hospital -->
-        <div class="card">
-            <h2>Ng Teng Fong General Hospital</h2>
-            <p><strong>Distance:</strong> NTFGH Data 1</p>
-            <p><strong>Waiting Time to See Doctor:</strong> Not Available</p>
-            <p><strong>Total Number of Patients:</strong> Not Available</p>
-            <p><strong>Median Waiting Time for Admission to Ward:</strong> 1.7 to 5.8 hrs</p>
-       </div>
-
-        <!-- Sengkang General Hospital -->
-        <div class="card">
-            <h2>Sengkang General Hospital</h2>
-            <p><strong>Distance:</strong> SKH Data 1</p>
-            <p><strong>Waiting Time to See Doctor:</strong> Not Available</p>
-            <p><strong>Total Number of Patients:</strong> Not Available</p>
-            <p><strong>Median Waiting Time for Admission to Ward:</strong> 4.1 to 18.7 hrs</p>
-       </div>
-
-        <!-- Singapore General Hospital -->
-        <div class="card">
-            <h2>Singapore General Hospital</h2>
-            <p><strong>Distance:</strong> SGH Data 1</p>
-            <p><strong>Waiting Time to See Doctor:</strong> Not Available</p>
-            <p><strong>Total Number of Patients:</strong> Not Available</p>
-            <p><strong>Median Waiting Time for Admission to Ward:</strong> 4.2 to 12.6 hrs</p>
-       </div>
-
-        <!-- Tan Tock Seng Hospital -->
-        <div class="card">
-            <h2>Tan Tock Seng Hospital</h2>
-            <p><strong>Distance:</strong> TTSH Data 1</p>
-            <p><strong>Waiting Time to See Doctor:</strong> TTSH Data 1</p>
-            <p><strong>Total Number of Patients:</strong> TTSH Data 1</p>
-            <p><strong>Median Waiting Time for Admission to Ward:</strong> 4.6 to 9.7 hrs</p>
-       </div>
-
-    </div>
+	<div id="hospitals-container"></div>
 </div>
+
+<script src="search.js"></script>
 
 </body>
 
