@@ -54,7 +54,7 @@ function updateDropdown(results) {
       // Update myLocation with the selected coordinates
       myLocation = [item.LATITUDE, item.LONGITUDE];
       // Log the selected location coordinates to the console
-      console.log('Latitude, Longitude: ' + myLocation);
+      console.log('Lat1, Lon1: ' + myLocation);
 
       // Display the selected coordinates on the webpage
       // document.getElementById('latitude').textContent = 'Latitude: ' + item.LATITUDE;
@@ -82,3 +82,23 @@ function performSearch() {
 
 // Add an event listener to handle changes to the search input
 document.getElementById('search-input').addEventListener('input', performSearch);
+
+// -----
+
+// Array of hospital locations
+var hospitals = [
+    {name: "Singapore General Hospital", location: [1.2783872348331307, 103.83413697237597]},
+    {name: "Changi General Hospital", location: [1.3402507222916804, 103.94957278340561]},
+    {name: "Sengkang General Hospital", location: [1.3958986576429515, 103.89394476726933]},
+    {name: "Khoo Teck Puat Hospital", location: [1.4243504773028133, 103.83858952387206]},
+    {name: "Tan Tock Seng Hospital", location: [1.321316768983475, 103.8463984667227]},
+    {name: "National University Hospital", location: [1.2951804107887588, 103.78293825874638]},
+    {name: "Ng Teng Fong General Hospital", location: [1.3335141468299205, 103.74597459082267]}
+];
+
+// Iterate over hospitals and calculate distance
+for (var i = 0; i < hospitals.length; i++) {
+    var hospital = hospitals[i];
+    var distance = calculateDistance(myLocation, hospital.location[0], hospital.location[1]);
+    console.log(hospital.name + ": " + distance + " km");
+}
