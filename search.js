@@ -131,12 +131,13 @@ function deg2rad(deg) {
 
 var hospitals = [
         
-        {name: "Changi General Hospital", location: [1.3402507222916804, 103.94957278340561], calculated_distance: null, wait_time_doc: "Data not available", no_of_patients: "Data not Available", wait_time_atw: "3.9 to 29 hrs"},
+        {name: "Alexandra Hospital Urgent Care Centre (UCC)", location: [1.2870473851672064, 103.80169283762326], calculated_distance: null, wait_time_doc: "-", no_of_patients: "-", wait_time_atw: "1.1 to 2.2 hrs"},
+        {name: "Changi General Hospital", location: [1.3402507222916804, 103.94957278340561], calculated_distance: null, wait_time_doc: "-", no_of_patients: "-", wait_time_atw: "3.9 to 29 hrs"},
         {name: "Khoo Teck Puat Hospital", location: [1.4243504773028133, 103.83858952387206], calculated_distance: null, wait_time_doc: "In development", no_of_patients: "In development", wait_time_atw: "3.9 to 23 hrs"},
-        {name: "National University Hospital", location: [1.2951804107887588, 103.78293825874638], calculated_distance: null, wait_time_doc: "Data not available", no_of_patients: "Data not Available", wait_time_atw: "3.9 to 7.1 hrs"},
-        {name: "Ng Teng Fong General Hospital", location: [1.3335141468299205, 103.74597459082267], calculated_distance: null, wait_time_doc: "Data not available", no_of_patients: "Data not Available", wait_time_atw: "1.7 to 5.8 hrs"},
-        {name: "Sengkang General Hospital", location: [1.3958986576429515, 103.89394476726933], calculated_distance: null, wait_time_doc: "Data not available", no_of_patients: "Data not Available", wait_time_atw: "4.1 to 18.7 hrs"},
-        {name: "Singapore General Hospital", location: [1.2783872348331307, 103.83413697237597], calculated_distance: null, wait_time_doc: "Data not available", no_of_patients: "Data not Available", wait_time_atw: "4.2 to 12.6 hrs"},
+        {name: "National University Hospital", location: [1.2951804107887588, 103.78293825874638], calculated_distance: null, wait_time_doc: "-", no_of_patients: "-", wait_time_atw: "3.9 to 7.1 hrs"},
+        {name: "Ng Teng Fong General Hospital", location: [1.3335141468299205, 103.74597459082267], calculated_distance: null, wait_time_doc: "-", no_of_patients: "-", wait_time_atw: "1.7 to 5.8 hrs"},
+        {name: "Sengkang General Hospital", location: [1.3958986576429515, 103.89394476726933], calculated_distance: null, wait_time_doc: "-", no_of_patients: "-", wait_time_atw: "4.1 to 18.7 hrs"},
+        {name: "Singapore General Hospital", location: [1.2783872348331307, 103.83413697237597], calculated_distance: null, wait_time_doc: "-", no_of_patients: "-", wait_time_atw: "4.2 to 12.6 hrs"},
         {name: "Tan Tock Seng Hospital", location: [1.321316768983475, 103.8463984667227], calculated_distance: null, wait_time_doc: "In development", no_of_patients: "In development", wait_time_atw: "4.6 to 9.7 hrs"}
 
 ];

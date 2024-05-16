@@ -29,7 +29,7 @@ h1 {
     line-height: 1.6;
     margin-bottom: 20px;
     color: #fff;
-    font-style: italic;
+    /* font-style: italic; */
 }
 
 nav {
@@ -50,6 +50,7 @@ nav {
 }
 
 /* Content styles */
+
 .content {
     background-color: #fff;
     padding: 20px;
@@ -70,7 +71,7 @@ h2 {
 }
 
 ul {
-    font-size: 16px;
+    font-size: 17px;
     color: #333;
     line-height: 1.6;
     font-family: 'Lato', sans-serif;
@@ -86,11 +87,11 @@ p {
 .list-container {
     display: flex;
     justify-content: space-between;
-    padding: 0 5px 0 25px;
+    padding: 0 2px 0 20px;
 }
 
 .list-container ul {
-    width: 45%;
+    width: 48%;
 }
 
 .button-container {
@@ -219,14 +220,18 @@ button:hover {
   border-bottom: 2px solid #2193b0;
   font-size: 20px;
   margin: 0 0 15px;
+  font-family: 'Lato', sans-serif;
 }
 
 .card p {
-  margin: 5px 0;
+  font-size: 16px;
+  /* margin: 5px 0; */
+  font-family: 'Lato', sans-serif;
 }
 
 .card p strong {
   color: #333;
+  font-family: 'Lato', sans-serif;
 }
 
 /* Footer style*/
@@ -254,5 +259,3 @@ button:hover {
     padding-left: 30px;
     text-align: left;
 }
-
-/* For commit purpose */
