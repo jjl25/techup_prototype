@@ -125,12 +125,12 @@ var hospitals = [
         
         {name: "Alexandra Hospital Urgent Care Centre (UCC)", location: [1.2870473851672064, 103.80169283762326], calculated_distance: null, wait_time_doc: "-", no_of_patients: "-", wait_time_atw: "1.1 to 2.2 hrs"},
         {name: "Changi General Hospital", location: [1.3402507222916804, 103.94957278340561], calculated_distance: null, wait_time_doc: "-", no_of_patients: "-", wait_time_atw: "3.9 to 29 hrs"},
-        {name: "Khoo Teck Puat Hospital", location: [1.4243504773028133, 103.83858952387206], calculated_distance: null, wait_time_doc: "[Under development]", no_of_patients: "[Under development]", wait_time_atw: "3.9 to 23 hrs"},
+        {name: "Khoo Teck Puat Hospital", location: [1.4243504773028133, 103.83858952387206], calculated_distance: null, wait_time_doc: "Error", no_of_patients: "Error", wait_time_atw: "3.9 to 23 hrs"},
         {name: "National University Hospital", location: [1.2951804107887588, 103.78293825874638], calculated_distance: null, wait_time_doc: "-", no_of_patients: "-", wait_time_atw: "3.9 to 7.1 hrs"},
         {name: "Ng Teng Fong General Hospital", location: [1.3335141468299205, 103.74597459082267], calculated_distance: null, wait_time_doc: "-", no_of_patients: "-", wait_time_atw: "1.7 to 5.8 hrs"},
         {name: "Sengkang General Hospital", location: [1.3958986576429515, 103.89394476726933], calculated_distance: null, wait_time_doc: "-", no_of_patients: "-", wait_time_atw: "4.1 to 18.7 hrs"},
         {name: "Singapore General Hospital", location: [1.2783872348331307, 103.83413697237597], calculated_distance: null, wait_time_doc: "-", no_of_patients: "-", wait_time_atw: "4.2 to 12.6 hrs"},
-        {name: "Tan Tock Seng Hospital", location: [1.321316768983475, 103.8463984667227], calculated_distance: null, wait_time_doc: "[Under development]", no_of_patients: "[Under development]", wait_time_atw: "4.6 to 9.7 hrs"}
+        {name: "Tan Tock Seng Hospital", location: [1.321316768983475, 103.8463984667227], calculated_distance: null, wait_time_doc: "Error", no_of_patients: "Error", wait_time_atw: "4.6 to 9.7 hrs"}
 
 ];
 
@@ -169,6 +169,30 @@ function getMinWaitTime(waitTimeStr) {
 function waitTimeSort() {
     hospitals.sort((a, b) => getMinWaitTime(a.wait_time_atw) - getMinWaitTime(b.wait_time_atw));
 }
+
+// --- New codes, to test
+
+// Function to get data from the server
+function getDataFromServer() {
+  fetch('/data') // Makes a network request to the server for the resource at '/data'
+    .then(response => { // Receives the response
+      if (!response.ok) { // Checks if the response status is not successful
+        throw new Error('Network response was not ok'); // Throws an error if the response is not ok
+      }
+      return response.json(); // Parses the response body as JSON
+    })
+    .then(data => {
+      console.log(data); // Logs the data received from the server
+    })
+    .catch(error => {
+      console.error('There has been a problem with your fetch operation:', error); // Catches and logs any errors that occur during the fetch operation
+    });
+}
+
+// Call the function to get data when needed
+getDataFromServer();
+
+// --- New codes, to test
 
 // Call waitTimeSort function to sort the hospitals by wait time for admission when the page loads
 waitTimeSort();

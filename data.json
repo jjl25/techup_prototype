@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Khoo Teck Puat Hospital",
+        "wait_time_doc": "Test data 1",
+        "no_of_patients": "Test data 2",
+        "date_time": null
+    },
+    {
+        "name": "Tan Tock Seng Hospital",
+        "wait_time_doc": "Test data 3",
+        "no_of_patients": "Test data 4",
+        "date_time": null
+    }
+]
