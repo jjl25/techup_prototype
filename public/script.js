@@ -4,19 +4,17 @@ var myLocation = [];
 // Array of hospital data
 var hospitals = [
         
-        {name: "Alexandra Hospital Urgent Care Centre (UCC)", location: [1.2870473851672064, 103.80169283762326], calculated_distance: null, wait_time_doc: "-", no_of_patients: "-", wait_time_ward: "1.1 to 2.2 hrs", link: "https://www.ah.com.sg/Pages/OurServices/Urgent-Care-Centre.aspx"},
-        {name: "Changi General Hospital", location: [1.3402507222916804, 103.94957278340561], calculated_distance: null, wait_time_doc: "-", no_of_patients: "-", wait_time_ward: "3.9 to 29 hrs", link: "https://www.cgh.com.sg/patient-care/your-clinic-visit/visiting-the-emergency-department"},
-        {name: "Khoo Teck Puat Hospital", location: [1.4243504773028133, 103.83858952387206], calculated_distance: null, wait_time_doc: "Unable to get data", no_of_patients: "Unable to get data", wait_time_ward: "3.9 to 23 hrs", link: "https://www.ktph.com.sg/i-want-to/visit-A-and-E"},
-        {name: "National University Hospital", location: [1.2951804107887588, 103.78293825874638], calculated_distance: null, wait_time_doc: "-", no_of_patients: "-", wait_time_ward: "3.9 to 7.1 hrs", link: "https://www.nuh.com.sg/our-services/Specialties/Emergency-Medicine/Pages/Visit-Emergency-Department.aspx"},
-        {name: "Ng Teng Fong General Hospital", location: [1.3335141468299205, 103.74597459082267], calculated_distance: null, wait_time_doc: "-", no_of_patients: "-", wait_time_ward: "1.7 to 5.8 hrs", link: "https://www.ntfgh.com.sg/for-patients-and-visitors/Pages/Visit-Emergency-Department.aspx"},
-        {name: "Sengkang General Hospital", location: [1.3958986576429515, 103.89394476726933], calculated_distance: null, wait_time_doc: "-", no_of_patients: "-", wait_time_ward: "4.1 to 18.7 hrs", link: "https://www.skh.com.sg/patient-care/specialties-services/emergency-medicine"},
-        {name: "Singapore General Hospital", location: [1.2783872348331307, 103.83413697237597], calculated_distance: null, wait_time_doc: "-", no_of_patients: "-", wait_time_ward: "4.2 to 12.6 hrs", link: "https://www.sgh.com.sg/patient-care/visiting-specialist/emergency-care-singapore-general-hospital?fireglass_rsn=true"},
-        {name: "Tan Tock Seng Hospital", location: [1.321316768983475, 103.8463984667227], calculated_distance: null, wait_time_doc: "Unable to get data", no_of_patients: "Unable to get data", wait_time_ward: "4.6 to 9.7 hrs", link: "https://www.ttsh.com.sg/Patients-and-Visitors/Medical-Services/Emergency/Pages/Emergency%20Medicine.aspx"}
+        {name: "Alexandra Hospital Urgent Care Centre (UCC)", location: [1.2870473851672064, 103.80169283762326], calculated_distance: null, wait_time_doc: null, no_of_patients: null, wait_time_ward: "1.1 to 2.2 hrs", link: "https://www.ah.com.sg/Pages/OurServices/Urgent-Care-Centre.aspx"},
+        {name: "Changi General Hospital", location: [1.3402507222916804, 103.94957278340561], calculated_distance: null, wait_time_doc: null, no_of_patients: null, wait_time_ward: "3.9 to 29 hrs", link: "https://www.cgh.com.sg/patient-care/your-clinic-visit/visiting-the-emergency-department"},
+        {name: "Khoo Teck Puat Hospital", location: [1.4243504773028133, 103.83858952387206], calculated_distance: null, wait_time_doc: null, no_of_patients: null, wait_time_ward: "3.9 to 23 hrs", link: "https://www.ktph.com.sg/i-want-to/visit-A-and-E"},
+        {name: "National University Hospital", location: [1.2951804107887588, 103.78293825874638], calculated_distance: null, wait_time_doc: null, no_of_patients: null, wait_time_ward: "3.9 to 7.1 hrs", link: "https://www.nuh.com.sg/our-services/Specialties/Emergency-Medicine/Pages/Visit-Emergency-Department.aspx"},
+        {name: "Ng Teng Fong General Hospital", location: [1.3335141468299205, 103.74597459082267], calculated_distance: null, wait_time_doc: null, no_of_patients: null, wait_time_ward: "1.7 to 5.8 hrs", link: "https://www.ntfgh.com.sg/for-patients-and-visitors/Pages/Visit-Emergency-Department.aspx"},
+        {name: "Sengkang General Hospital", location: [1.3958986576429515, 103.89394476726933], calculated_distance: null, wait_time_doc: null, no_of_patients: null, wait_time_ward: "4.1 to 18.7 hrs", link: "https://www.skh.com.sg/patient-care/specialties-services/emergency-medicine"},
+        {name: "Singapore General Hospital", location: [1.2783872348331307, 103.83413697237597], calculated_distance: null, wait_time_doc: null, no_of_patients: null, wait_time_ward: "4.2 to 12.6 hrs", link: "https://www.sgh.com.sg/patient-care/visiting-specialist/emergency-care-singapore-general-hospital?fireglass_rsn=true"},
+        {name: "Tan Tock Seng Hospital", location: [1.321316768983475, 103.8463984667227], calculated_distance: null, wait_time_doc: null, no_of_patients: null, wait_time_ward: "4.6 to 9.7 hrs", link: "https://www.ttsh.com.sg/Patients-and-Visitors/Medical-Services/Emergency/Pages/Emergency%20Medicine.aspx"},
+        {name: "Woodlands Health", location: [1.4256883456702252, 103.79493011026004], calculated_distance: null, wait_time_doc: null, no_of_patients: null, wait_time_ward: "Data not available", link: "https://www.wh.com.sg/for-patients-visitors/your-emergency-visit"}
 
 ];
-
-// Call the function to get data when needed
-getDataFromServer();
 
 // Function to render cards
 function renderCards() {
@@ -26,15 +24,15 @@ function renderCards() {
         var card = document.createElement('div');
         card.className = 'card';
         var distanceDisplay = hospital.calculated_distance ? hospital.calculated_distance + ' km' : 'Please enter location';
-        var waitTimeDocDisplay = hospital.wait_time_doc ? hospital.wait_time_doc : 'Wait time data not available';
-        var noOfPatientsDisplay = hospital.no_of_patients ? hospital.no_of_patients : 'Number of patients data not available';
-        var waitTimeWardDisplay = hospital.wait_time_ward ? hospital.wait_time_ward : 'Mean wait time data not available';
+        var waitTimeDocDisplay = hospital.wait_time_doc ? '<p><strong>Waiting time to see doctor:</strong> ' + hospital.wait_time_doc + '</p>' : '';
+        var noOfPatientsDisplay = hospital.no_of_patients ? '<p><strong>Total number of patients:</strong> ' + hospital.no_of_patients + '</p>' : '';
+        var waitTimeWardDisplay = hospital.wait_time_ward ? hospital.wait_time_ward : 'Data not available';     
         var linkDisplay = hospital.link ? '<a href="' + hospital.link + '" target="_blank">Go to website</a>' : 'Link not available';
         card.innerHTML = '<h3>' + hospital.name + '</h3>' +
                          '<p><strong>Distance:</strong> ' + distanceDisplay + '</p>' +
-                         '<p><strong>Waiting time to see doctor:</strong> ' + waitTimeDocDisplay + '</p>' +
-                         '<p><strong>Total number of patients:</strong> ' + noOfPatientsDisplay + '</p>' +
-                         '<p><strong>Median waiting time for admission to ward:</strong> ' + waitTimeWardDisplay + '</p>' +
+                         waitTimeDocDisplay +
+                         noOfPatientsDisplay +
+                         '<p><strong>Median waiting time for admission to ward*:</strong> ' + waitTimeWardDisplay + '</p>' +
                          '<p>' + linkDisplay + '</p>'; // Add link display
         container.appendChild(card);
     });
@@ -68,21 +66,29 @@ function getDataFromServer() {
       var noOfPatients_KTPH = data[0].x2;
       var waitTimeDoc_TTSH = data[0].y1;
       var noOfPatients_TTSH = data[0].y2;
-      // console.log('x1 = ' + waitTimeDoc_KTPH + ', x2 = ' + noOfPatients_KTPH + ', y1 = ' + waitTimeDoc_TTSH + ', y2 = ' + waitTimeDoc_TTSH);
+      var waitTimeDoc_WH = data[0].z1;
+      var noOfPatients_WH = data[0].z2;
+      console.log('x1 = ' + waitTimeDoc_KTPH + ', x2 = ' + noOfPatients_KTPH + ', y1 = ' + waitTimeDoc_TTSH + ', y2 = ' + waitTimeDoc_TTSH, 'z1 = ' + waitTimeDoc_WH + ', z2 = ' + noOfPatients_WH);
 
       // Find KTPH and TTSH in the hospitals array
       var KTPH = hospitals.find(hospital => hospital.name === "Khoo Teck Puat Hospital");
       var TTSH = hospitals.find(hospital => hospital.name === "Tan Tock Seng Hospital");
+      var WH = hospitals.find(hospital => hospital.name === "Woodlands Health");
 
       // Update the wait_time_doc and no_of_patients for Khoo Teck Puat Hospital
       if (KTPH) {
         KTPH.wait_time_doc = waitTimeDoc_KTPH + ' mins';
-        KTPH.no_of_patients = noOfPatients_KTPH;
+        KTPH.no_of_patients = noOfPatients_KTPH + ' (Patients with more severe conditions will be treated first.)';
       }
       // Update the wait_time_doc and no_of_patients for Tan Tock Seng Hospital
       if (TTSH) {
         TTSH.wait_time_doc = waitTimeDoc_TTSH + ' mins';
-        TTSH.no_of_patients = noOfPatients_TTSH;
+        TTSH.no_of_patients = noOfPatients_TTSH + ' (Patients with more severe conditions will be treated first.)';
+      }
+      // Update the wait_time_doc and no_of_patients for Woodlands Health
+      if (WH) {
+        WH.wait_time_doc = waitTimeDoc_WH + ' mins';
+        WH.no_of_patients = noOfPatients_WH + ' (Patients with more severe conditions will be treated first.)';
       }
     })
 
@@ -99,6 +105,9 @@ function getDataFromServer() {
     console.log(hospitals);
 
 }
+
+// Call the function to get data when needed
+getDataFromServer();
 
 // Function to perform an address search using OneMap's API
 function addressSearch(searchVal, returnGeom, getAddrDetails, pageNum) {

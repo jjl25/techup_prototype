@@ -183,6 +183,7 @@ button:hover {
 }
 
 /* Hospital cards container */
+
 #hospitals-container {
     display: flex; /* Use flexbox to stack cards vertically */
     flex-direction: column; /* Stack vertically */
@@ -232,6 +233,10 @@ button:hover {
 .card p strong {
   color: #333;
   font-family: 'Lato', sans-serif;
+}
+
+.note p {
+    font-size: 15px;
 }
 
 /* Footer style*/
