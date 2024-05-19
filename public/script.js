@@ -12,6 +12,7 @@ var hospitals = [
         {name: "Sengkang General Hospital", location: [1.3958986576429515, 103.89394476726933], calculated_distance: null, wait_time_doc: null, no_of_patients: null, wait_time_ward: "4.1 to 18.7 hrs", link: "https://www.skh.com.sg/patient-care/specialties-services/emergency-medicine"},
         {name: "Singapore General Hospital", location: [1.2783872348331307, 103.83413697237597], calculated_distance: null, wait_time_doc: null, no_of_patients: null, wait_time_ward: "4.2 to 12.6 hrs", link: "https://www.sgh.com.sg/patient-care/visiting-specialist/emergency-care-singapore-general-hospital?fireglass_rsn=true"},
         {name: "Tan Tock Seng Hospital", location: [1.321316768983475, 103.8463984667227], calculated_distance: null, wait_time_doc: null, no_of_patients: null, wait_time_ward: "4.6 to 9.7 hrs", link: "https://www.ttsh.com.sg/Patients-and-Visitors/Medical-Services/Emergency/Pages/Emergency%20Medicine.aspx"},
+        {name: "KK Women's and Children's Hospital", location: [1.3106824308350944, 103.8468155281571], calculated_distance: null, wait_time_doc: null, no_of_patients: null, wait_time_ward: "Data not available", link: "https://www.kkh.com.sg/patient-care/areas-of-care/childrens-services/Pages/children-emergency.aspx"},
         {name: "Woodlands Health", location: [1.4256883456702252, 103.79493011026004], calculated_distance: null, wait_time_doc: null, no_of_patients: null, wait_time_ward: "Data not available", link: "https://www.wh.com.sg/for-patients-visitors/your-emergency-visit"}
 
 ];
@@ -70,7 +71,7 @@ function getDataFromServer() {
       var noOfPatients_WH = data[0].z2;
       console.log('x1 = ' + waitTimeDoc_KTPH + ', x2 = ' + noOfPatients_KTPH + ', y1 = ' + waitTimeDoc_TTSH + ', y2 = ' + waitTimeDoc_TTSH, 'z1 = ' + waitTimeDoc_WH + ', z2 = ' + noOfPatients_WH);
 
-      // Find KTPH and TTSH in the hospitals array
+      // Find KTPH, TTSH, and WH in the hospitals array
       var KTPH = hospitals.find(hospital => hospital.name === "Khoo Teck Puat Hospital");
       var TTSH = hospitals.find(hospital => hospital.name === "Tan Tock Seng Hospital");
       var WH = hospitals.find(hospital => hospital.name === "Woodlands Health");
@@ -78,17 +79,17 @@ function getDataFromServer() {
       // Update the wait_time_doc and no_of_patients for Khoo Teck Puat Hospital
       if (KTPH) {
         KTPH.wait_time_doc = waitTimeDoc_KTPH + ' mins';
-        KTPH.no_of_patients = noOfPatients_KTPH + ' (Patients with more severe conditions will be treated first.)';
+        KTPH.no_of_patients = noOfPatients_KTPH + ' (Patients with more severe conditions will be treated first)';
       }
       // Update the wait_time_doc and no_of_patients for Tan Tock Seng Hospital
       if (TTSH) {
         TTSH.wait_time_doc = waitTimeDoc_TTSH + ' mins';
-        TTSH.no_of_patients = noOfPatients_TTSH + ' (Patients with more severe conditions will be treated first.)';
+        TTSH.no_of_patients = noOfPatients_TTSH + ' (Patients with more severe conditions will be treated first)';
       }
       // Update the wait_time_doc and no_of_patients for Woodlands Health
       if (WH) {
         WH.wait_time_doc = waitTimeDoc_WH + ' mins';
-        WH.no_of_patients = noOfPatients_WH + ' (Patients with more severe conditions will be treated first.)';
+        WH.no_of_patients = noOfPatients_WH + ' (Patients with more severe conditions will be treated first)';
       }
     })
 
@@ -220,7 +221,7 @@ function performSearch() {
 function onSubmit(event) {
     event.preventDefault();
     if (myLocation.length === 0) {
-        alert('Please enter location.'); // Alert if no location is selected
+        alert('Please enter location'); // Alert if no location is selected
         return;
     }
     var lat = parseFloat(myLocation[0]);
