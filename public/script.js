@@ -69,7 +69,8 @@ function getDataFromServer() {
       var noOfPatients_TTSH = data[0].y2;
       var waitTimeDoc_WH = data[0].z1;
       var noOfPatients_WH = data[0].z2;
-      console.log('x1 = ' + waitTimeDoc_KTPH + ', x2 = ' + noOfPatients_KTPH + ', y1 = ' + waitTimeDoc_TTSH + ', y2 = ' + waitTimeDoc_TTSH, 'z1 = ' + waitTimeDoc_WH + ', z2 = ' + noOfPatients_WH);
+      var timestampGetData = data[0].timestamp;
+      console.log('KTPH Waiting time to see doctor: ' + waitTimeDoc_KTPH + ', KTPH Total number of patients: ' + noOfPatients_KTPH + ', TTSH Waiting time to see doctor: ' + waitTimeDoc_TTSH + ', TTSH Total number of patients: ' + noOfPatients_TTSH, ', WH Waiting time to see doctor: ' + waitTimeDoc_WH + ', WH Total number of patients: ' + noOfPatients_WH + ', Timestamp: ' + timestampGetData);
 
       // Find KTPH, TTSH, and WH in the hospitals array
       var KTPH = hospitals.find(hospital => hospital.name === "Khoo Teck Puat Hospital");
