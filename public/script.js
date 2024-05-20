@@ -87,7 +87,7 @@ async function getDataFromServer() {
     });
 
     console.log(hospitals);
-    console.log(results.row)
+    console.log(data)
 
 }
 
