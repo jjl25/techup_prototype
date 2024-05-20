@@ -15,7 +15,7 @@ app.use(express.static('public'));
 
 // Create a new pool (a set of connections) to the PostgreSQL database using the provided connection string
 const pool = new Pool({
-  connectionString: 'postgres://techup_database_z5tu_user:Dgd71BtvtoNtLcZtVmhfHWX1ubZQMwlj@dpg-cp5g1t0l5elc73e4dob0-a.singapore-postgres.render.com/techup_database_z5tu',
+  connectionString: 'postgres://techup_database_z5tu_user:Dgd71BtvtoNtLcZtVmhfHWX1ubZQMwlj@dpg-cp5g1t0l5elc73e4dob0-a/techup_database_z5tu',
 });
 
 // Define a route handler for GET requests to the '/data' path
