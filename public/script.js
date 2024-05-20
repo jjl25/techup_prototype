@@ -68,17 +68,17 @@ async function getDataFromServer() {
       // Update the wait_time_doc and no_of_patients for Khoo Teck Puat Hospital
       if (KTPH) {
         KTPH.wait_time_doc = waitTimeDoc_KTPH + ' mins';
-        KTPH.no_of_patients = noOfPatients_KTPH + ' (Patients with more severe conditions will be treated first)';
+        KTPH.no_of_patients = noOfPatients_KTPH;
       }
       // Update the wait_time_doc and no_of_patients for Tan Tock Seng Hospital
       if (TTSH) {
         TTSH.wait_time_doc = waitTimeDoc_TTSH + ' mins';
-        TTSH.no_of_patients = noOfPatients_TTSH + ' (Patients with more severe conditions will be treated first)';
+        TTSH.no_of_patients = noOfPatients_TTSH;
       }
       // Update the wait_time_doc and no_of_patients for Woodlands Health
       if (WH) {
         WH.wait_time_doc = waitTimeDoc_WH + ' mins';
-        WH.no_of_patients = noOfPatients_WH + ' (Patients with more severe conditions will be treated first)';
+        WH.no_of_patients = noOfPatients_WH;
       }
     })
 
@@ -87,6 +87,7 @@ async function getDataFromServer() {
     });
 
     console.log(hospitals);
+
 }
 
 (async function() {
