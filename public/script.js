@@ -88,7 +88,6 @@ async function getDataFromServer() {
 
     console.log(hospitals);
     console.log(data)
-
 }
 
 (async function() {
