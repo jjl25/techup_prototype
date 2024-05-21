@@ -278,10 +278,3 @@ button:hover {
 .footer a:hover {
     color: #6dd5ed;
 }
-
-/* References page */
-
-.references {
-    padding-left: 30px;
-    text-align: left;
-}
