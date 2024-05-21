@@ -8,7 +8,7 @@
     box-sizing: border-box;
 }
 
-/* Header styles */
+/* Header */
 .header {
     background: #00008B;
     padding: 20px;
@@ -49,7 +49,7 @@ nav {
     color: #6dd5ed;
 }
 
-/* Content styles */
+/* Content */
 
 .content {
     background-color: #fff;
@@ -87,18 +87,16 @@ p {
 .list-container {
     display: flex;
     justify-content: left;
-    padding-left: 25px;
-    padding-right: 25px;
-}
-
-.list-container ul {
-    width: 100;
+    align-items: center;
+    padding: 0px 10px;
+    margin-left: 25px;
+    width: 95%;
 }
 
 .button-container {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
 button {
@@ -195,7 +193,7 @@ button:hover {
     margin: 5px auto; /* Center the container and add vertical spacing */
 }
 
-/* Card container styles */
+/* Card container */
 
 .card-container {
   display: flex;
@@ -241,6 +239,8 @@ button:hover {
     margin-bottom: 10px;
 }
 
+/* Sort order container */
+
 .sort {
     display: inline-flex;
     justify-content: center;
@@ -260,7 +260,7 @@ button:hover {
     font-style: italic;
 }
 
-/* Footer style */
+/* Footer */
 
 .footer {
     background-color: #00008B;
@@ -279,7 +279,7 @@ button:hover {
     color: #6dd5ed;
 }
 
-/* References page style*/
+/* References page */
 
 .references {
     padding-left: 30px;
