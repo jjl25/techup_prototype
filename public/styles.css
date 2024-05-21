@@ -71,7 +71,7 @@ h2 {
 }
 
 ul {
-    font-size: 17px;
+    font-size: 18px;
     color: #333;
     line-height: 1.6;
     font-family: 'Lato', sans-serif;
@@ -86,12 +86,13 @@ p {
 
 .list-container {
     display: flex;
-    justify-content: space-between;
-    padding: 0 2px 0 20px;
+    justify-content: left;
+    padding-left: 25px;
+    padding-right: 25px;
 }
 
 .list-container ul {
-    width: 48%;
+    width: 100;
 }
 
 .button-container {
@@ -237,6 +238,24 @@ button:hover {
 
 .note p {
     font-size: 15px;
+}
+
+.sort-order {
+    background-color: #00008B;
+    text-align: center;
+    justify-content: center;
+    padding: 5px 5px;
+    margin: 10px 0px 0px 10px;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    width: 42%;
+}
+
+.sort-order p {
+    font-size: 16px;
+    color: #fff;
+    font-family: 'Lato', sans-serif;
+    font-style: italic;
 }
 
 /* Footer style*/
