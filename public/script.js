@@ -92,8 +92,8 @@ async function getDataFromServer() {
 
 (async function() {
 
-await getDataFromServer(); // Call the function to get data when needed
-renderCards(); // Then call renderCards function to show the sorted cards
+    await getDataFromServer(); // Call the function to get data when needed
+    renderCards(); // Then call renderCards function to show the sorted cards
 
 })();
 
@@ -204,6 +204,10 @@ function performSearch() {
   document.getElementById('search-results').style.display = 'block';
 }
 
+// Update the sort order text
+var sortDiv = document.querySelector('.sort');
+sortDiv.innerHTML = '<p>Hospitals are listed in alphabetical order</p>';
+
 // Function to handle search button click and calculate distances
 function onSubmit(event) {
     event.preventDefault();
@@ -217,9 +221,13 @@ function onSubmit(event) {
         var distance = calculateDistance(lat, lon, hospital.location[0], hospital.location[1]);
         hospital.calculated_distance = distance; // Store distance in the hospital object
     });
+
     updateDistancesAndSort(); // Sort hospitals by distance
     renderCards(); // Render the hospital cards
+    sortDiv.innerHTML = '<p>Hospitals are listed by distance</p>';
 }
+
+
 
 
 

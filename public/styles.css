@@ -238,27 +238,29 @@ button:hover {
 
 .note p {
     font-size: 15px;
+    margin-bottom: 10px;
 }
 
-.sort-order {
+.sort {
+    display: inline-flex;
+    justify-content: center;
+    align-items: left;
     background-color: #00008B;
     text-align: center;
-    justify-content: center;
-    padding: 5px 5px;
-    margin: 10px 0px 0px 10px;
+    padding: 5px 15px 5px 10px ;
+    margin: 0px 10px;
     border-radius: 8px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    width: 42%;
 }
 
-.sort-order p {
+.sort p {
     font-size: 16px;
     color: #fff;
     font-family: 'Lato', sans-serif;
     font-style: italic;
 }
 
-/* Footer style*/
+/* Footer style */
 
 .footer {
     background-color: #00008B;
