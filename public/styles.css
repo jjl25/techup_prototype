@@ -95,7 +95,7 @@ p {
     justify-content: left;
     align-items: center;
     padding: 0px 10px;
-    margin-left: 25px;
+    margin-left: 15px;
     width: 95%;
 }
 
@@ -242,7 +242,7 @@ button:hover {
 
 .note p {
     font-size: 15px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 /* Sort order container */
@@ -253,7 +253,7 @@ button:hover {
     align-items: left;
     background-color: #00008B;
     text-align: center;
-    padding: 5px 15px 5px 10px ;
+    padding: 5px 15px 5px 15px ;
     margin: 0px 10px;
     border-radius: 8px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
@@ -263,7 +263,7 @@ button:hover {
     font-size: 16px;
     color: #fff;
     font-family: 'Lato', sans-serif;
-    font-style: italic;
+    /* font-style: italic; */
 }
 
 /* Footer */
