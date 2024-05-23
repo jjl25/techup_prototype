@@ -25,15 +25,15 @@ function renderCards() {
         var card = document.createElement('div');
         card.className = 'card';
         var distanceDisplay = hospital.calculated_distance ? hospital.calculated_distance + ' km' : 'Please enter location';
-        var waitTimeDocDisplay = hospital.wait_time_doc ? '<p><strong>Waiting time to see doctor:</strong> ' + hospital.wait_time_doc + '</p>' : '';
-        var noOfPatientsDisplay = hospital.no_of_patients ? '<p><strong>Total number of patients:</strong> ' + hospital.no_of_patients + '</p>' : '';
+        var waitTimeDocDisplay = hospital.wait_time_doc ? '<p>Waiting time to see doctor: ' + hospital.wait_time_doc + '</p>' : '';
+        var noOfPatientsDisplay = hospital.no_of_patients ? '<p>Total number of patients: ' + hospital.no_of_patients + '</p>' : '';
         var waitTimeWardDisplay = hospital.wait_time_ward ? hospital.wait_time_ward : 'Data not available';     
         var linkDisplay = hospital.link ? '<a href="' + hospital.link + '" target="_blank">Go to website</a>' : 'Link not available';
         card.innerHTML = '<h3>' + hospital.name + '</h3>' +
-                         '<p><strong>Distance:</strong> ' + distanceDisplay + '</p>' +
+                         '<p>Distance: ' + distanceDisplay + '</p>' +
                          waitTimeDocDisplay +
                          noOfPatientsDisplay +
-                         '<p><strong>Median waiting time for admission to ward*:</strong> ' + waitTimeWardDisplay + '</p>' +
+                         '<p>Median waiting time for admission to ward*: ' + waitTimeWardDisplay + '</p>' +
                          '<p>' + linkDisplay + '</p>'; // Add link display
         container.appendChild(card);
     });
@@ -226,3 +226,10 @@ function onSubmit(event) {
     renderCards(); // Render the hospital cards
     sortDiv.innerHTML = '<p>Hospitals are listed by distance</p>';
 }
+
+
+
+
+
+
+
