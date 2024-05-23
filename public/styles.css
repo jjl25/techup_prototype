@@ -29,7 +29,7 @@ h1 {
     max-width: 800px;
     /* justify-content: center; */
     align-items: center;
-    text-align: justify;
+    text-align: left;
     font-size: 13px;
     line-height: 1.6;
     margin-bottom: 20px;
@@ -84,7 +84,7 @@ ul {
 }
 
 p {
-    text-align: justify;
+    text-align: left;
     font-size: 18px;
     color: #333;
     line-height: 1.6;
