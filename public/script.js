@@ -226,10 +226,3 @@ function onSubmit(event) {
     renderCards(); // Render the hospital cards
     sortDiv.innerHTML = '<p>Hospitals are listed by distance</p>';
 }
-
-
-
-
-
-
-

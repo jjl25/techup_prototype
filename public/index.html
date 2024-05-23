@@ -55,22 +55,23 @@
     </div>
 </div>
 
-<!-- Section 3 - Check A&E waiting times based on location, manual search and GPS -->
+<!-- Section 3 - Find A&E information -->
 
 <div class="content">
-    <h2>Find A&E information</h2>
-    <div class="search-container">
-        <input type="text" id="search-input" class="search-input" placeholder="Enter your location" oninput="performSearch()">
-        <div id="search-results" class="autocomplete-results"></div>
-        <button onclick="onSubmit(event)" class="search-button"><strong>Search</strong></button>
-    </div>
-</div>
+        <h2>A&E Information</h2>
 
-<!-- Section 4 - Hospital cards -->
-
-<div class="content">
         <div class="note"><p>Please note that the median waiting time for admission to ward* is calculated from the time from “decision by doctor to admit patient” to “patient exits A&E” to go to the inpatient ward. The data shown below is from the week of 28 Apr (Sun) to 4 May (Sat) 2024.</p></div>
+
+        <div class="search-instruction"><p>Enter your location to search for A&E near you</p></div>
+
+        <div class="search-container">
+            <input type="text" id="search-input" class="search-input" placeholder="Enter your location" oninput="performSearch()">
+            <div id="search-results" class="autocomplete-results"></div>
+            <button onclick="onSubmit(event)" class="search-button"><strong>Search</strong></button>
+        </div>     
+        
         <div class="sort"></div>      
+        
         <div id="hospitals-container"></div>
 </div>
 
