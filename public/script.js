@@ -25,15 +25,15 @@ function renderCards() {
         var card = document.createElement('div');
         card.className = 'card';
         var distanceDisplay = hospital.calculated_distance ? hospital.calculated_distance + ' km' : 'Please enter location';
-        var waitTimeDocDisplay = hospital.wait_time_doc ? '<p><i class="fa-solid fa-stethoscope"></i> Waiting time to see doctor: <strong>' + hospital.wait_time_doc + '</strong></p>' : '';
-        var noOfPatientsDisplay = hospital.no_of_patients ? '<p><i class="fa-solid fa-user-group"></i> Number of patients: <strong>' + hospital.no_of_patients + '</strong></p>' : '';
+        var waitTimeDocDisplay = hospital.wait_time_doc ? '<p>Waiting time to see doctor: <strong>' + hospital.wait_time_doc + '</strong></p>' : '';
+        var noOfPatientsDisplay = hospital.no_of_patients ? '<p>Number of patients: <strong>' + hospital.no_of_patients + '</strong> <i class="fa-solid fa-user-group"></i></p>' : '';
         var waitTimeWardDisplay = hospital.wait_time_ward ? hospital.wait_time_ward : 'Data not available';     
         var linkDisplay = hospital.link ? '<a href="' + hospital.link + '" target="_blank">Go to website</a>' : 'Link not available';
         card.innerHTML = '<h3>' + hospital.name + '</h3>' +
                          '<p><i class="fa-solid fa-location-dot"></i> <strong>' + distanceDisplay + '</strong></p>' +
                          waitTimeDocDisplay +
                          noOfPatientsDisplay +
-                         '<p><i class="fa-solid fa-hourglass-half"></i> Median waiting time for admission to ward*: <strong>' + waitTimeWardDisplay + '</strong></p>' +
+                         '<p>Median waiting time for admission to ward*: <strong>' + waitTimeWardDisplay + '</strong></p>' +
                          '<p>' + linkDisplay + '</p>'; // Add link display
         container.appendChild(card);
     });
