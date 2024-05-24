@@ -34,7 +34,7 @@ function renderCards() {
                          noOfPatientsDisplay +
                          waitTimeDocDisplay +
                          '<p><i class="fa-regular fa-hourglass-half"></i> Median waiting time for admission to ward* is <strong>' + waitTimeWardDisplay + '</strong></p>' +
-                         '<p>' + linkDisplay + '</p>'; // Add link display
+                         '<p><i class="fa-solid fa-up-right-from-square"></i> ' + linkDisplay + '</p>'; // Add link display
         container.appendChild(card);
     });
 }
