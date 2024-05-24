@@ -63,9 +63,9 @@ async function getDataFromServer() {
       console.log('KTPH Waiting time to see doctor: ' + waitTimeDoc_KTPH + ', KTPH Total number of patients: ' + noOfPatients_KTPH + ', TTSH Waiting time to see doctor: ' + waitTimeDoc_TTSH + ', TTSH Total number of patients: ' + noOfPatients_TTSH, ', WH Waiting time to see doctor: ' + waitTimeDoc_WH + ', WH Total number of patients: ' + noOfPatients_WH + ', Timestamp: ' + timestampGetData);
 
       // Find KTPH, TTSH, and WH in the hospitals array
-      var KTPH = hospitals.find(hospital => hospital.name === "Khoo Teck Puat Hospital");
-      var TTSH = hospitals.find(hospital => hospital.name === "Tan Tock Seng Hospital");
-      var WH = hospitals.find(hospital => hospital.name === "Woodlands Health");
+      var KTPH = hospitals.find(hospital => hospital.name === "Khoo Teck Puat Hospital (KTPH)");
+      var TTSH = hospitals.find(hospital => hospital.name === "Tan Tock Seng Hospital (TTSH)");
+      var WH = hospitals.find(hospital => hospital.name === "Woodlands Health (WH)");
 
       // Update the wait_time_doc and no_of_patients for Khoo Teck Puat Hospital
       if (KTPH) {
