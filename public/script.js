@@ -25,8 +25,8 @@ function renderCards() {
         var card = document.createElement('div');
         card.className = 'card';
         var distanceDisplay = hospital.calculated_distance ? hospital.calculated_distance + ' km away' : 'Please enter location';
-        var waitTimeDocDisplay = hospital.wait_time_doc ? '<p><i class="fa-regular fa-hourglass-half"></i> <strong>' + hospital.wait_time_doc + '</strong> waiting time to see doctor</p>' : '';
-        var noOfPatientsDisplay = hospital.no_of_patients ? '<p><i class="fa-solid fa-user-group"></i> <strong>' + hospital.no_of_patients + ' patients</strong> in queue</p>' : '';
+        var waitTimeDocDisplay = hospital.wait_time_doc ? '<p><i class="fa-regular fa-hourglass-half"></i> <strong>' + hospital.wait_time_doc + '</strong> wait time to see doctor</p>' : '';
+        var noOfPatientsDisplay = hospital.no_of_patients ? '<p><i class="fa-solid fa-user-group"></i> <strong>' + hospital.no_of_patients + ' patient(s)</strong> in queue</p>' : '';
         var waitTimeWardDisplay = hospital.wait_time_ward ? hospital.wait_time_ward : 'data not available';     
         var urlDisplay = hospital.url ? '<a href="' + hospital.url + '" target="_blank">Go to website</a>' : 'Link not available';
         var paediatricDisplay = hospital.paediatric ? '<p><i class="fa-solid fa-baby-carriage"></i> ' + hospital.paediatric + '</p>' : '';
@@ -34,7 +34,7 @@ function renderCards() {
                          '<p><i class="fa-solid fa-location-dot"></i> <strong>' + distanceDisplay + '</strong></p>' +
                          noOfPatientsDisplay +
                          waitTimeDocDisplay +
-                         '<p><i class="fa-regular fa-hourglass-half"></i> Median waiting time for admission to ward* is <strong>' + waitTimeWardDisplay + '</strong></p>' +
+                         '<p><i class="fa-regular fa-hourglass-half"></i> Median ward admission wait time* is <strong>' + waitTimeWardDisplay + '</strong></p>' +
                          paediatricDisplay +
                          '<p><i class="fa-solid fa-up-right-from-square"></i> ' + urlDisplay + '</p>';
         container.appendChild(card);

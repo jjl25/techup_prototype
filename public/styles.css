@@ -125,20 +125,20 @@ button:hover {
 .search-container {
     display: flex;
     justify-content: left;
-    margin: 40px 0px 30px 10px;
+    margin: 40px 0px 40px 10px;
     position: relative; /* Set the position to relative */
 }
 
 .search-input {
-    padding: 10px;
     font-size: 17px;
+    padding: 10px;
     border: 2px solid #A9A9A9;
     border-radius: 40px;
     width: 80%;
     margin-right: 10px;
-    font-family: 'Lato', sans-serif;
     position: relative; /* Set the position to relative */
     z-index: 100; /* Ensure it stacks above the autocomplete results */
+    font-family: 'Lato', sans-serif;
 }
 
 .search-input::placeholder {
@@ -194,8 +194,8 @@ button:hover {
     display: flex; /* Use flexbox to stack cards vertically */
     flex-direction: column; /* Stack vertically */
     align-items: center; /* Center cards horizontally */
-    gap: 10px;
-    padding: 10px;
+    gap: 15px; /* Affects card vertical gap */
+    padding: 10px; /* Affects card width */
     width: 100%;
     margin: 5px auto; /* Center the container and add vertical spacing */
 }
@@ -205,7 +205,7 @@ button:hover {
 .card-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  /* gap: 10px; */
   justify-content: center;
 }
 
@@ -213,34 +213,34 @@ button:hover {
 
 .card {
   background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  /* border: 1px solid #ddd; */
   border: 2px solid #E8EDEE;
+  border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  padding: 20px;
+  padding: 20px; /* Card internal padding */
   width: 100%;
 }
 
 .card h3 {
-  color: #333;
-  padding-bottom: 10px;
-  border-bottom: 2px solid #0072CE;
   font-size: 20px;
-  margin: 0 0 15px;
+  color: #333;
+  border-bottom: 2px solid #0072CE;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
   font-family: 'Lato', sans-serif;
 }
 
 .card p {
   font-size: 17px;
-  /* margin: 5px 0; */
+  padding: 0px 0px 5px 0px;
   font-family: 'Lato', sans-serif;
 }
 
-.card p strong {
+/* .card p strong {
   color: #333;
   font-family: 'Lato', sans-serif;
-}
+} */
 
 .note p {
     font-size: 14px;
@@ -256,20 +256,20 @@ button:hover {
     align-items: left;
     /* background-color: #0072CE; */
     background-color: #f9f9f9;
+    border: 2px solid #333;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+
     text-align: center;
     padding: 5px 8px;
     margin: 0px 10px;
-    border-radius: 8px;
-    border: 2px solid #0072CE;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
 .sort p {
     font-size: 16px;
-    color: #0072CE;
+    color: #333;
     font-weight: bold;
     font-family: 'Lato', sans-serif;
-    /* font-style: italic; */
 }
 
 /* Footer */
