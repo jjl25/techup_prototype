@@ -4,16 +4,16 @@ var myLocation = [];
 // Array of hospital data
 var hospitals = [
         
-        {name: "Alexandra Hospital Urgent Care Centre (UCC)", location: [1.2870473851672064, 103.80169283762326], calculated_distance: null, wait_time_doc: null, no_of_patients: null, wait_time_ward: "between 1.1 to 2.2 hrs", link: "https://www.ah.com.sg/Pages/OurServices/Urgent-Care-Centre.aspx"},
-        {name: "Changi General Hospital", location: [1.3402507222916804, 103.94957278340561], calculated_distance: null, wait_time_doc: null, no_of_patients: null, wait_time_ward: "between 3.9 to 29 hrs", link: "https://www.cgh.com.sg/patient-care/your-clinic-visit/visiting-the-emergency-department"},
-        {name: "KK Women's and Children's Hospital", location: [1.3106824308350944, 103.8468155281571], calculated_distance: null, wait_time_doc: null, no_of_patients: null, wait_time_ward: "(data not available)", link: "https://www.kkh.com.sg/patient-care/areas-of-care/childrens-services/Pages/children-emergency.aspx"},
-        {name: "Khoo Teck Puat Hospital", location: [1.4243504773028133, 103.83858952387206], calculated_distance: null, wait_time_doc: null, no_of_patients: null, wait_time_ward: "between 3.9 to 23 hrs", link: "https://www.ktph.com.sg/i-want-to/visit-A-and-E"},
-        {name: "National University Hospital", location: [1.2951804107887588, 103.78293825874638], calculated_distance: null, wait_time_doc: null, no_of_patients: null, wait_time_ward: "between 3.9 to 7.1 hrs", link: "https://www.nuh.com.sg/our-services/Specialties/Emergency-Medicine/Pages/Visit-Emergency-Department.aspx"},
-        {name: "Ng Teng Fong General Hospital", location: [1.3335141468299205, 103.74597459082267], calculated_distance: null, wait_time_doc: null, no_of_patients: null, wait_time_ward: "between 1.7 to 5.8 hrs", link: "https://www.ntfgh.com.sg/for-patients-and-visitors/Pages/Visit-Emergency-Department.aspx"},
-        {name: "Sengkang General Hospital", location: [1.3958986576429515, 103.89394476726933], calculated_distance: null, wait_time_doc: null, no_of_patients: null, wait_time_ward: "between 4.1 to 18.7 hrs", link: "https://www.skh.com.sg/patient-care/specialties-services/emergency-medicine"},
-        {name: "Singapore General Hospital", location: [1.2783872348331307, 103.83413697237597], calculated_distance: null, wait_time_doc: null, no_of_patients: null, wait_time_ward: "between  4.2 to 12.6 hrs", link: "https://www.sgh.com.sg/patient-care/visiting-specialist/emergency-care-singapore-general-hospital?fireglass_rsn=true"},
-        {name: "Tan Tock Seng Hospital", location: [1.321316768983475, 103.8463984667227], calculated_distance: null, wait_time_doc: null, no_of_patients: null, wait_time_ward: "between 4.6 to 9.7 hrs", link: "https://www.ttsh.com.sg/Patients-and-Visitors/Medical-Services/Emergency/Pages/Emergency%20Medicine.aspx"},
-        {name: "Woodlands Health", location: [1.4256883456702252, 103.79493011026004], calculated_distance: null, wait_time_doc: null, no_of_patients: null, wait_time_ward: "(data not available)", link: "https://www.wh.com.sg/for-patients-visitors/your-emergency-visit"}
+        {name: "Alexandra Hospital Urgent Care Centre (AH UCC)", location: [1.2870473851672064, 103.80169283762326], calculated_distance: null, wait_time_doc: null, no_of_patients: null, wait_time_ward: "between 1.1 to 2.2 hrs", url: "https://www.ah.com.sg/Pages/OurServices/Urgent-Care-Centre.aspx", paediatric: null},
+        {name: "Changi General Hospital (CGH)", location: [1.3402507222916804, 103.94957278340561], calculated_distance: null, wait_time_doc: null, no_of_patients: null, wait_time_ward: "between 3.9 to 29 hrs", url: "https://www.cgh.com.sg/patient-care/your-clinic-visit/visiting-the-emergency-department", paediatric: null},
+        {name: "KK Women's and Children's Hospital (KKH)", location: [1.3106824308350944, 103.8468155281571], calculated_distance: null, wait_time_doc: null, no_of_patients: null, wait_time_ward: "(data not available)", url: "https://www.kkh.com.sg/patient-care/areas-of-care/childrens-services/Pages/children-emergency.aspx", paediatric: "Children's Emergency available"},
+        {name: "Khoo Teck Puat Hospital (KTPH)", location: [1.4243504773028133, 103.83858952387206], calculated_distance: null, wait_time_doc: null, no_of_patients: null, wait_time_ward: "between 3.9 to 23 hrs", url: "https://www.ktph.com.sg/i-want-to/visit-A-and-E", paediatric: "Does not have paediatric facilities. Young patients will be stabilised and transferred to KKH."},
+        {name: "National University Hospital (NUH)", location: [1.2951804107887588, 103.78293825874638], calculated_distance: null, wait_time_doc: null, no_of_patients: null, wait_time_ward: "between 3.9 to 7.1 hrs", url: "https://www.nuh.com.sg/our-services/Specialties/Emergency-Medicine/Pages/Visit-Emergency-Department.aspx", paediatric: "Children's Emergency available"},
+        {name: "Ng Teng Fong General Hospital (NTFGH)", location: [1.3335141468299205, 103.74597459082267], calculated_distance: null, wait_time_doc: null, no_of_patients: null, wait_time_ward: "between 1.7 to 5.8 hrs", url: "https://www.ntfgh.com.sg/for-patients-and-visitors/Pages/Visit-Emergency-Department.aspx", paediatric: "Does not have paediatric facilities. Young patients will be stabilised and transferred to NUH."},
+        {name: "Sengkang General Hospital (SKH)", location: [1.3958986576429515, 103.89394476726933], calculated_distance: null, wait_time_doc: null, no_of_patients: null, wait_time_ward: "between 4.1 to 18.7 hrs", url: "https://www.skh.com.sg/patient-care/when-do-i-visit-the-ed", paediatric: "Does not have paediatric facilities. Young patients will be stabilised and transferred to KKH."},
+        {name: "Singapore General Hospital (SGH)", location: [1.2783872348331307, 103.83413697237597], calculated_distance: null, wait_time_doc: null, no_of_patients: null, wait_time_ward: "between  4.2 to 12.6 hrs", url: "https://www.sgh.com.sg/patient-care/visiting-specialist/emergency-care-singapore-general-hospital?fireglass_rsn=true", paediatric: "Does not have paediatric facilities. Young patients will be stabilised and transferred to KKH."},
+        {name: "Tan Tock Seng Hospital (TTSH)", location: [1.321316768983475, 103.8463984667227], calculated_distance: null, wait_time_doc: null, no_of_patients: null, wait_time_ward: "between 4.6 to 9.7 hrs", url: "https://www.ttsh.com.sg/Patients-and-Visitors/Medical-Services/Emergency/Pages/Emergency%20Medicine.aspx", paediatric: null},
+        {name: "Woodlands Health (WH)", location: [1.4256883456702252, 103.79493011026004], calculated_distance: null, wait_time_doc: null, no_of_patients: null, wait_time_ward: "(data not available)", url: "https://www.wh.com.sg/for-patients-visitors/your-emergency-visit", paediatric: null}
 
 ];
 
@@ -24,17 +24,19 @@ function renderCards() {
     hospitals.forEach(function(hospital) {
         var card = document.createElement('div');
         card.className = 'card';
-        var distanceDisplay = hospital.calculated_distance ? hospital.calculated_distance + ' km' : 'Please enter location';
+        var distanceDisplay = hospital.calculated_distance ? hospital.calculated_distance + ' km away' : 'Please enter location';
         var waitTimeDocDisplay = hospital.wait_time_doc ? '<p><i class="fa-regular fa-hourglass-half"></i> <strong>' + hospital.wait_time_doc + '</strong> waiting time to see doctor</p>' : '';
         var noOfPatientsDisplay = hospital.no_of_patients ? '<p><i class="fa-solid fa-user-group"></i> <strong>' + hospital.no_of_patients + ' patients</strong> in queue</p>' : '';
         var waitTimeWardDisplay = hospital.wait_time_ward ? hospital.wait_time_ward : 'data not available';     
-        var linkDisplay = hospital.link ? '<a href="' + hospital.link + '" target="_blank">Go to website</a>' : 'Link not available';
+        var urlDisplay = hospital.url ? '<a href="' + hospital.url + '" target="_blank">Go to website</a>' : 'Link not available';
+        var paediatricDisplay = hospital.paediatric ? '<p><i class="fa-solid fa-baby-carriage"></i> ' + hospital.paediatric + '</p>' : '';
         card.innerHTML = '<h3>' + hospital.name + '</h3>' +
                          '<p><i class="fa-solid fa-location-dot"></i> <strong>' + distanceDisplay + '</strong></p>' +
                          noOfPatientsDisplay +
                          waitTimeDocDisplay +
                          '<p><i class="fa-regular fa-hourglass-half"></i> Median waiting time for admission to ward* is <strong>' + waitTimeWardDisplay + '</strong></p>' +
-                         '<p><i class="fa-solid fa-up-right-from-square"></i> ' + linkDisplay + '</p>'; // Add link display
+                         paediatricDisplay +
+                         '<p><i class="fa-solid fa-up-right-from-square"></i> ' + urlDisplay + '</p>';
         container.appendChild(card);
     });
 }
