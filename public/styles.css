@@ -87,7 +87,6 @@ p {
     font-size: 17px;
     color: #333;
     line-height: 1.6;
-    padding: 0px 5px;
     font-family: 'Lato', sans-serif;
 }
 
@@ -95,15 +94,14 @@ p {
     display: flex;
     justify-content: left;
     align-items: center;
-    padding: 0px 10px;
-    margin-left: 13px;
-    width: 95%;
+    margin: 0px 20px;
+    width: 100%;
 }
 
 .button-container {
     display: flex;
     justify-content: center;
-    margin-top: 15px;
+    margin: 15px 0px 5px 0px;
 }
 
 button {
@@ -125,7 +123,7 @@ button:hover {
 .search-container {
     display: flex;
     justify-content: left;
-    margin: 40px 0px 40px 10px;
+    margin: 40px 0px;
     position: relative; /* Set the position to relative */
 }
 
@@ -135,7 +133,7 @@ button:hover {
     border: 2px solid #A9A9A9;
     border-radius: 40px;
     width: 80%;
-    margin-right: 10px;
+    margin-right: 10px; /* Space between search input and serach button */
     position: relative; /* Set the position to relative */
     z-index: 100; /* Ensure it stacks above the autocomplete results */
     font-family: 'Lato', sans-serif;
@@ -195,7 +193,7 @@ button:hover {
     flex-direction: column; /* Stack vertically */
     align-items: center; /* Center cards horizontally */
     gap: 15px; /* Affects card vertical gap */
-    padding: 10px; /* Affects card width */
+    /* padding: 10px; */
     width: 100%;
     margin: 5px auto; /* Center the container and add vertical spacing */
 }
@@ -245,7 +243,8 @@ button:hover {
 .note p {
     font-size: 14px;
     text-align: justify;
-    margin: 20px 10px 0px 10px;
+    margin: 25px 0px;
+    width: 100%;
 }
 
 /* Sort order container */
@@ -254,15 +253,13 @@ button:hover {
     display: inline-flex;
     justify-content: center;
     align-items: left;
+    text-align: center;
     /* background-color: #0072CE; */
     background-color: #f9f9f9;
+    padding: 5px 8px;
     border: 2px solid #333;
     border-radius: 8px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-
-    text-align: center;
-    padding: 5px 8px;
-    margin: 0px 10px;
 }
 
 .sort p {
@@ -270,6 +267,13 @@ button:hover {
     color: #333;
     font-weight: bold;
     font-family: 'Lato', sans-serif;
+}
+
+.center-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%; /* Adjust the width percentage to make the image smaller or larger */
 }
 
 /* Footer */
