@@ -79,7 +79,7 @@ def update_data():
     # Connect to your postgres DB
     def update_data_table(id, x1, x2, y1, y2, z1, z2, timestamp):
         # Connect to your postgres DB
-        conn = psycopg2.connect("dbname=techup_database_z5tu user=techup_database_z5tu_user password=Dgd71BtvtoNtLcZtVmhfHWX1ubZQMwlj host=dpg-cp5g1t0l5elc73e4dob0-a.singapore-postgres.render.com")
+        conn = psycopg2.connect("dbname=? user=? password=? host=?")
         cur = conn.cursor()
 
         # Create the UPDATE statement
